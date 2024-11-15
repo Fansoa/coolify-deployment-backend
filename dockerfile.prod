@@ -1,12 +1,5 @@
 FROM node:20.12.2-alpine3.18 AS base
 
-# Accept DockerHub credentials as environment variables
-ARG DOCKER_USERNAME
-ARG DOCKER_PASSWORD
-
-# Login to DockerHub
-RUN echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-
 # All deps stage
 FROM base AS deps
 WORKDIR /app
